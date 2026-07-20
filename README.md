@@ -81,17 +81,3 @@ reject it.
 | 9 | Grid arranged 5 × 4 × 10 | `buildGridTargets()` (`GX=5, GY=4, GZ=10`) |
 | 10 | Send the URL | once hosted, share that link |
 
-## Notes / things worth mentioning in your submission
-
-- Photos are loaded directly from the `static.kasatria.com` URLs in the
-  sheet; a tile falls back to initials if an image 404s.
-- The 200 rows in the CSV divide evenly into the 20×10 table (200) and the
-  5×4×10 grid (200), so no padding/truncation logic was needed — if the
-  sheet ever has a different row count, the code degrades gracefully (extra
-  tiles just won't have a Grid/Table slot to animate into).
-- Currency values like `$251,260.80` are parsed with
-  `parseCurrency()` before being compared against the $100K/$200K thresholds.
-- If the Google Sheet fetch fails (not published, wrong URL, offline), the
-  app automatically falls back to the embedded copy of the CSV so the demo
-  never breaks — a message at the bottom-right ("Loaded N rows from Google
-  Sheet" vs "Using embedded demo data") tells you which source is live.
